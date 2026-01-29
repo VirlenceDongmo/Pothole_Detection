@@ -1,0 +1,259 @@
+\documentclass[11pt]{beamer}
+% Theme configuration
+\usetheme{Warsaw}
+\usepackage{ragged2e}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{comment}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{bibentry}
+\usepackage{fontawesome5} % Pour les icônes
+\usepackage[backend=bibtex,style=numeric,sorting=none]{biblatex} % Style numérique avec ordre des citations
+\addbibresource{bibliography.bib} % Chemin vers votre fichier .bib
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+\author[DONGMO FEUDJIO - KENMOGNE]{}
+% Obtenir le nombre total de slides
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\beamer@enddocumenthook}{\clearpage}{\clearpage%
+\immediate\write\@auxout{\string\newlabel{lastframe}{{}{\theframenumber}}}}{}{}
+\makeatother
+% Pied de page personnalisé
+\setbeamertemplate{footline}{
+\leavevmode%
+\hbox{%
+\begin{beamercolorbox}[wd=.24\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+\hspace*{1ex}DONGMO FEUDJIO
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.64\paperwidth,ht=2.5ex,dp=1ex,center]{title in head/foot}%
+      Détection de nids de poules
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.09\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+\end{beamercolorbox}
+  }%
+\vskip0pt%
+}
+\logo{\includegraphics[height=6mm]{img/logo.png}}
+% Title page configuration
+\title{Détection de nids de poules sur le tronçon Dschang-Bafoussam}
+\begin{document}
+% Page de titre
+\begin{frame}[plain]
+\begin{figure}
+\vspace{-0.5cm}
+\centering
+\includegraphics[width=0.9\textwidth]{img/page_de_garde.png}
+\end{figure}
+\vspace{-0.9cm}
+\date{}
+\titlepage
+\vspace{-2.25cm}
+\centering
+\scriptsize
+\textbf{Par :}
+\vspace{0.2cm}
+\begin{tabular}{p{6cm}p{4cm}}
+\toprule
+\textbf{Nom et Prénom} & \textbf{Matricule} \\
+    DONGMO FEUDJIO Divin Virlence & CM-UDS-21SCI0878 \\
+    KENMOGNE Ange Prisca & CM-UDS-21SCI \\
+\bottomrule
+\end{tabular}\\[1mm]
+\textbf{Sous la direction de :}
+\vspace{0.2cm}
+\begin{tabular}{p{6cm}p{4cm}}
+\toprule
+\textbf{Nom et Prénom} & \textbf{Statut} \\
+    Pr KENGNE TCHENDJI Vianney & Maître de Conférences \\
+    YAWENI & Chargé de TD \\
+\bottomrule
+\end{tabular}\\[1mm]
+\normalsize
+\today
+\end{frame}
+\begin{frame}[plain]
+\frametitle{Plan de présentation}
+\tableofcontents[hideallsubsections]
+\end{frame}
+\section{Analyse du papier : You only look once: Unified, real-time object detection}
+\begin{frame}[allowframebreaks]
+\frametitle{Analyse du papier : You Only Look Once (YOLO)}
+\framesubtitle{Résumé et Contexte}
+\textbf{Papier de Redmon et al. (2016)} : Introduit YOLO pour détection en temps réel.
+\begin{itemize}
+\item \textbf{Approche} : Régression unique vs. pipelines complexes (R-CNN).
+\item \textbf{Points clés} :
+\begin{itemize}
+\item Vitesse : 45 FPS (base), 155 FPS (Fast YOLO).
+\item Précision : Double mAP temps réel, mais + erreurs localisation.
+\item Généralisation : Meilleur sur art vs. DPM/R-CNN.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{img/YOLO_System_Detection.png}
+\caption{Système de détection de YOLO \cite{redmon2016you}}
+\end{figure}
+\begin{itemize}
+  \item Redimensionner l'image à 448x448
+  \item Exécuter un réseau convolutif unique
+  \item Seuiller les détections par confiance
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analyse du papier : You Only Look Once (YOLO)}
+\framesubtitle{Introduction (Section 1)}
+\textbf{Problématique} : Système humain rapide et précis vs. méthodes lentes (DPM, R-CNN) qui réutilisent des capteurs pour la détection.
+\begin{itemize}
+\item \textbf{YOLO} : Une passe pour prédictions objets/positions.
+\item \textbf{Avantages} :
+\begin{itemize}
+\item Vitesse : 45-150 FPS, latence <25 ms.
+\item Raisonnement global : $\frac{1}{2}$ faux positifs arrière-plan vs. Fast R-CNN.
+\item Généralisation : Domaines inattendus (art).
+\end{itemize}
+\item \textbf{Limites} : Localisation imprécise petits objets.
+\end{itemize}
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Analyse du papier : You Only Look Once (YOLO)}
+\framesubtitle{Détection Unifiée (Section 2)}
+\textbf{Architecture} : Grille $S\times S$ et si le centre d'un objet tombe dans une cellule de grille, cette cellule de grille est responsable de la détection de cet objet.
+\begin{itemize}
+\item Chaque \textbf{cellule de grille} prédit B boîtes englobantes, des scores de confiance pour ces boîtes et C probabilités de classes conditionnelles.
+\item \textbf{Score} : $Pr(Class_i|Object) \times Pr(Object) \times IOU$.
+\item Chaque boîte englobante consiste en 5 prédictions : \textbf{x, y, w, h, et la confiance}
+\begin{itemize}
+\item x,y : les coordonnées du centre de la boîte
+\item w,h : la largeur et la hauteur de la boîte
+\item la confiance : IOU entre la boîte prédite et toute boîte vérité terrain
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{img/YOLO_Model.png}
+\caption{Modèle de détection de YOLO \cite{redmon2016you}}
+\end{figure}
+
+\begin{itemize}
+\item x,y : les coordonnées du centre de la boîte
+\item w,h : la largeur et la hauteur de la boîte
+\item la confiance : IOU entre la boîte prédite et toute boîte vérité terrain
+\end{itemize}
+
+\item \textbf{Réseau} : ce modèle est implémenté comme un réseau neuronal convolutif.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{img/YOLO_Model_Reseau.png}
+\caption{Modèle de détection de YOLO \cite{redmon2016you}}
+\end{figure}
+\item \textbf{Entraînement} :
+\begin{itemize}
+\item Pré-entraînement des couches convolutives sur ImageNet (1000 classes).
+\item Conversion du modèle pour la détection en ajoutant 4 couches convolutives et 2 couches entièrement connectées.
+\item Augmentation de la résolution d'entrée de 224x224 à 448x448 pour des informations visuelles fines.
+\item Utilisation d'une fonction de perte somme des carrés pondérée ($\lambda_{coord}=5$, $\lambda_{noobj}=0.5$).
+\item Prédiction de la racine carrée de w et h pour mieux gérer les erreurs sur petites boîtes.
+\item Assignation d'un prédicteur responsable par objet basé sur l'IOU le plus élevé.
+\end{itemize}
+\item \textbf{Inférence} :
+\begin{itemize}
+\item Une seule évaluation du réseau pour prédire 98 boîtes et classes par image.
+\item Utilisation de NMS pour éliminer les détections multiples (+2-3\% mAP).
+\item Pas de pipeline complexe, rapide pour le streaming vidéo.
+\end{itemize}
+\item \textbf{Limites} :
+\begin{itemize}
+\item Contraintes spatiales : seulement 2 boîtes et 1 classe par cellule, limite les objets proches.
+\item Difficulté avec petits objets groupés (ex. : troupeaux d'oiseaux).
+\item Généralisation limitée à ratios d'aspect ou configurations inhabituelles.
+\item Caractéristiques grossières dues au downsampling.
+\item Fonction de perte traite erreurs identiquement pour petites/grandes boîtes (source principale d'erreurs de localisation).
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Analyse du papier : You Only Look Once (YOLO)}
+\framesubtitle{Comparaison systèmes (Section 3)}
+\textbf{YOLO vs. concurrents :}
+\begin{itemize}
+\item \textbf{YOLO vs. DPM} : Architecture unifiée vs. approche de fenêtre glissante ; remplace extraction statique, classification et prédiction par un seul CNN optimisé pour la détection.
+\item \textbf{YOLO vs. R-CNN} : Contraintes spatiales sur propositions (98 vs. 2000) ; optimisation conjointe vs. pipeline disjoint lent (>40s/image).
+\item \textbf{YOLO vs. Fast/Faster R-CNN} : Plus rapide (45 FPS vs. 7 FPS) mais moins précis ; ne repose pas sur Selective Search.
+\item \textbf{YOLO vs. MultiBox} : Système complet vs. seulement prédiction de régions ; détection générale vs. pièce de pipeline.
+\item \textbf{YOLO vs. OverFeat} : Raisonnement global vs. local ; optimise pour détection vs. localisation.
+\item \textbf{YOLO vs. MultiGrasp} : Détection multiple objets/classes vs. une seule région saisissable.
+\item \textbf{Tableau comparatif :}
+\end{itemize}
+
+\begin{tabular}{lcc}
+\toprule
+Méthode & mAP & FPS \\
+\midrule
+Fast YOLO & 52.7 & 155 \\
+YOLO & 63.4 & 45 \\
+Fast R-CNN & 70.0 & 0.5 \\
+\bottomrule
+\end{tabular}
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Analyse du papier : You Only Look Once (YOLO)}
+\framesubtitle{Expériences (Section 4)}
+\textbf{Résultats VOC 2007 :}
+\begin{itemize}
+\item \textbf{4.1 Temps réel} : YOLO 63.4 mAP @45 FPS (2x DPM).
+\item \textbf{4.2 Erreurs} :
+\begin{itemize}
+\item YOLO : 19\% loc., 4.75\% bg.
+\item Fast R-CNN : 8.6\% loc., 13.6\% bg.
+\end{itemize}
+\item \textbf{4.3 Combinaison} : +3.2\% mAP (75.0\%).
+\item \textbf{4.4 VOC 2012} : 57.9 mAP (faible petits objets).
+\item \textbf{4.5 Généralisation} : Art Picasso 59\% AP (meilleur R-CNN).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Analyse du papier : You Only Look Once (YOLO)}
+\framesubtitle{Sections 5-6 \& Applicabilité}
+\textbf{Section 5 (Détection en temps réel dans le monde réel)} : 
+\begin{itemize}
+\item YOLO est connecté à une webcam pour démontrer ses performances en temps réel, y compris la récupération des images et l'affichage des détections.
+\item Le système est interactif : traite les images individuellement mais fonctionne comme un suivi en détectant les objets en mouvement.
+\item Démo et code source disponibles sur le site du projet (open-source).
+\end{itemize}
+
+\textbf{Section 6 (Conclusion)} : 
+\begin{itemize}
+\item YOLO est un modèle unifié, simple à construire, entraîné directement sur images complètes.
+\item Optimisé pour performances de détection ; rapide, précis et généralisable.
+\item Pousse l'état de l'art en détection temps réel ; idéal pour applications nécessitant robustesse.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Références}
+\begin{scriptsize}
+\printbibliography[title={}]
+\end{scriptsize}
+\end{frame}
+\end{document}

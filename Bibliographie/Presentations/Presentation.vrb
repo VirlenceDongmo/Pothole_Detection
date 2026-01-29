@@ -1,0 +1,15 @@
+\frametitle{Détection Unifiée – Section 2}
+\textbf{Architecture de base}
+
+Grille $S \times S$ ($S=7$) → 98 prédictions par image
+
+\begin{itemize}
+\item Par cellule : $B=2$ boîtes $(x,y,w,h,C)$ + $C=20$ classes
+\item Score final : $Pr(\text{classe}_i) \times IOU$
+\item Réseau : 24 couches conv. + 2 FC (inspiré GoogLeNet)
+\item Fast YOLO : 9 couches conv.
+\item Perte : somme carrés pondérée $\lambda_\text{coord}=5$
+\item Inférence : 1 passage + NMS
+\item Limites : petits objets groupés difficiles
+\item \textbf{Projet} : fine-tuning sur photos locales routes camerounaises
+\end{itemize}
