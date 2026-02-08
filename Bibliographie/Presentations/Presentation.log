@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.2)  29 JAN 2026 09:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.2)  1 FEB 2026 09:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1414,7 +1414,7 @@ Overfull \hbox (47.69315pt too wide) detected at line 88
 object detection[] 
  []
 
-<img/page_de_garde.png, id=31, 942.52126pt x 332.24126pt>
+<img/page_de_garde.png, id=37, 942.52126pt x 332.24126pt>
 File: img/page_de_garde.png Graphic file (type png)
 <use img/page_de_garde.png>
 Package pdftex.def Info: img/page_de_garde.png  used on input line 88.
@@ -1500,7 +1500,7 @@ Overfull \hbox (47.69315pt too wide) detected at line 120
 ject detection 
  []
 
-<img/YOLO_System_Detection.png, id=151, 384.43625pt x 95.35625pt>
+<img/YOLO_System_Detection.png, id=166, 384.43625pt x 95.35625pt>
 File: img/YOLO_System_Detection.png Graphic file (type png)
 <use img/YOLO_System_Detection.png>
 Package pdftex.def Info: img/YOLO_System_Detection.png  used on input line 120.
@@ -1562,12 +1562,12 @@ Overfull \hbox (47.69315pt too wide) detected at line 193
 ject detection 
  []
 
-<img/YOLO_Model.png, id=215, 400.49625pt x 246.9225pt>
+<img/YOLO_Model.png, id=232, 400.49625pt x 246.9225pt>
 File: img/YOLO_Model.png Graphic file (type png)
 <use img/YOLO_Model.png>
 Package pdftex.def Info: img/YOLO_Model.png  used on input line 193.
 (pdftex.def)             Requested size: 245.83282pt x 151.56819pt.
-<img/YOLO_Model_Reseau.png, id=217, 641.39626pt x 284.06125pt>
+<img/YOLO_Model_Reseau.png, id=234, 641.39626pt x 284.06125pt>
 File: img/YOLO_Model_Reseau.png Graphic file (type png)
 <use img/YOLO_Model_Reseau.png>
 Package pdftex.def Info: img/YOLO_Model_Reseau.png  used on input line 193.
@@ -1847,17 +1847,21 @@ ject detection
 
 
 ]
-Overfull \hbox (47.69315pt too wide) detected at line 258
+Overfull \hbox (47.69315pt too wide) detected at line 257
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
  []
 
+(./Presentation.toc) [17
 
-LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
-(Font)              using `T1/cmss/m/n' instead on input line 258.
+]
+Overfull \hbox (47.69315pt too wide) detected at line 312
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
 
 
-LaTeX Warning: File `img/logo.png' not found on input line 258.
+LaTeX Warning: File `img/logo.png' not found on input line 312.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1867,7 +1871,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.258 \end{frame}
+l.312 \end{frame}
                  
 ? 
 
@@ -1876,7 +1880,87 @@ Overfull \hbox (50.1923pt too wide) has occurred while \output is active
 object detection[] 
  []
 
-[17
+[18
+
+]
+
+LaTeX Warning: File `img/logo.png' not found on input line 312.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.312 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+[19
+
+
+]
+
+LaTeX Warning: File `img/logo.png' not found on input line 312.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.312 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+[20
+
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 320
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
+(Font)              using `T1/cmss/m/n' instead on input line 320.
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 320.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.320 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+[21
 
 ]
 \tf@nav=\write8
@@ -1905,7 +1989,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 087C8F7B010B0DD1459F68413EADFF7C;550.
+(rerunfilecheck)             Checksum: 210A6D3BA0DD39F89223F4C3103E613E;786.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                Presentation
@@ -1916,11 +2000,11 @@ Package logreq Info: Writing requests to 'Presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35571 strings out of 474222
- 698378 string characters out of 5748734
+ 35635 strings out of 474222
+ 699798 string characters out of 5748734
  1946975 words of memory out of 5000000
- 57172 multiletter control sequences out of 15000+600000
- 577622 words of font info for 85 fonts, out of 8000000 for 9000
+ 57222 multiletter control sequences out of 15000+600000
+ 579007 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,1924b,2321s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
@@ -1935,11 +2019,14 @@ are/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/fonts/type
 ss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/sha
 re/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1
 /public/cm-super/sfsx0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfs
-x1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on Presentation.pdf (17 pages, 531551 bytes).
+x1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/shar
+e/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt
+1000.pfb>
+Output written on Presentation.pdf (21 pages, 622091 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 537 compressed objects within 6 object streams
- 38 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 814 PDF objects out of 1000 (max. 8388607)
+ 680 compressed objects within 7 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

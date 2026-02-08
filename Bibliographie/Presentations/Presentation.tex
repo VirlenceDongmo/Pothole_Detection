@@ -250,6 +250,68 @@ Fast R-CNN & 70.0 & 0.5 \\
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}[plain]
+\frametitle{Plan de présentation}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Collecte des données pour le projet}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Collecte des données}
+\framesubtitle{Stratégie adoptée : Option 2 – Datasets publics + affinage local}
+
+\textbf{Objectif} : Obtenir un ensemble de données adapté aux routes camerounaises (tronçon Dschang-Bafoussam), avec au moins 500 images annotées au format YOLO.
+
+\begin{itemize}
+    \item \textbf{Datasets publics (base)} :
+    \begin{itemize}
+        \item Dataset principal : \textbf{Potholes-Detection-YOLOv8} (Kaggle, par Angga Dwi Sunarto).
+        \item Nombre d'images : 1581 (train) + 396 (validation).
+        \item Classes : pothole (1 classe).
+        \item Format : YOLO (dossiers train/images, train/labels ; valid/images, valid/labels ; fichier data.yaml prêt).
+        \item Avantages : Images haute résolution, diverses conditions (éclairage jour/nuit, sec/humide), déjà annotées avec bounding boxes.
+        \item Source : \url{https://www.kaggle.com/datasets/anggadwisunarto/potholes-detection-yolov8}
+    \end{itemize}
+
+    \item \textbf{Collecte locale complémentaire (affinage)} :
+    \begin{itemize}
+        \item Objectif : Au moins 200 images spécifiques au Cameroun pour adapter le modèle aux caractéristiques locales (asphalte dégradé, poussière rouge, végétation tropicale, pluies intenses, ombres d'arbres).
+        \item Méthode automatisée : Script Python utilisant \textbf{Google Custom Search JSON API} pour télécharger des images web pertinentes.
+        \item Requêtes utilisées (queries) :
+        \begin{itemize}
+            \item ``routes Cameroun nids de poule''
+            \item ``potholes Cameroon roads''
+            \item ``Bafoussam bad road potholes''
+            \item ``potholes Dschang road''
+        \end{itemize}
+        \item Résultat : 200 images téléchargées.
+        \item Script clé (extrait) :
+        \begin{itemize}
+            \item API : Google Custom Search (clé API + CX).
+            \item Téléchargement progressif avec \texttt{tqdm} et gestion d'erreurs.
+            \item Filtre : images larges (\texttt{imgSize=large}).
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Annotation des images locales} :
+    \begin{itemize}
+        \item Outil principal : \textbf{Roboflow} : \url{https://app.roboflow.com/pothole-detection-wipyl/pothole-detection-dschang-bafous/1}
+    \end{itemize}
+
+    \item \textbf{Diversité recherchée} :
+    \begin{itemize}
+        \item Conditions météo : sec, pluvieux (flaques d'eau).
+        \item Éclairage : matin, midi, soir/nuit.
+        \item Types de routes : bitumées dégradées, secondaires, zones urbaines/périurbaines (Bafoussam, Dschang, axes ouest).
+    \end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+
 \begin{frame}[allowframebreaks]
 \frametitle{Références}
 \begin{scriptsize}
