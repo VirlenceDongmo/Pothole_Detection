@@ -1,0 +1,484 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+
+% Packages mathématiques (AJOUTÉ)
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{csquotes}  % Recommandé par biblatex
+
+% Mise en page
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{parskip}
+\usepackage{enumitem}
+
+% Figures, tableaux, flottants
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{caption}
+
+% Hyperliens
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+\usepackage{bookmark}
+
+% Bibliographie
+\usepackage[backend=bibtex,style=numeric,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Titres et structure
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\normalsize\bfseries}{\theparagraph}{1em}{}
+
+% Table des matières
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\cftsetindents{section}{0em}{2.5em}
+\cftsetindents{subsection}{1.5em}{3em}
+\cftsetindents{subsubsection}{3em}{3.5em}
+\cftsetindents{paragraph}{4.5em}{4em}
+\setlength{\cftsecnumwidth}{6em}
+\renewcommand{\cftsecaftersnumb}{\ }
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\addto\captionsfrench{\renewcommand{\contentsname}{Sommaire}}
+
+% Table des figures
+\addto\captionsfrench{\renewcommand{\listfigurename}{Liste des figures et tableaux}}
+\usepackage[section]{placeins}
+
+% Redéfinition des numéros de section
+\renewcommand{\thesection}{Chapitre \Roman{section}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\renewcommand{\thesubsubsection}{\Roman{subsection}.\arabic{subsubsection}}
+
+% Espacement pour les légendes
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{5pt}
+
+% Titre du document (AJOUTÉ)
+\title{Rapport sur la Détection de Nids-de-Poule}
+\author{Votre Nom}
+\date{\today}
+
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\listoffigures
+                      % ← Ajout de la table des figures et tableaux
+\newpage
+
+
+\section{Analyse de l'article scientifique "You Only Look Once:Unified, Real-Time Object Detection" de Joseph Redmon, Santosh Divvala, Ross Girshick et Ali Farhadi}
+
+\subsection{Introduction}
+
+Cet article présente YOLO comme une approche unifiée pour la détection d'objets, reformulant le problème comme une régression directe des bounding boxes et probabilités de classes à partir d'images complètes. Contrairement aux méthodes antérieures (ex. classificateurs repurposés comme R-CNN), YOLO utilise un réseau neuronal unique optimisé end-to-end pour la performance de détection. Les auteurs soulignent la vitesse : 45 FPS pour le modèle base, 155 FPS pour Fast YOLO, avec un mAP double des détecteurs temps réel existants. YOLO commet plus d'erreurs de localisation mais moins de faux positifs sur le fond, et généralise mieux à d'autres domaines (ex. artwork).
+
+\subsection{Système de détection YOLO}
+
+Le système de prédiction de YOLO est résumé en trois grandes étapes, comme l'illustre la figure suivante :
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/YOLO_System_Detection.png}
+\caption{Modèle YOLO \cite{redmon2016you}}
+\label{fig:fig2}
+\end{figure}
+
+\begin{enumerate}
+    \item Division de l’image en grille
+    \item Prédiction simultanée par chaque cellule de chaque grille
+    \item Post-traitement avec suppression non-maximale (NMS)
+\end{enumerate}
+
+
+\subsection{Division de l’image en grille (Grid Division)}
+
+L’algorithme YOLO divise l’image d’entrée en une grille régulière de taille \textbf{S × S} comme le montre la figure suivante :
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{img/YOLO_Model.png}
+\caption{Système de détection YOLO \cite{redmon2016you}}
+\label{fig:fig1}
+\end{figure}
+
+\begin{itemize}
+    \item Chaque cellule de la grille est responsable de la détection des objets dont le \textbf{centre} tombe à l’intérieur de cette cellule.
+    \item Si le centre d’un objet se trouve dans une cellule, cette cellule doit prédire :
+    \begin{itemize}
+        \item une ou plusieurs boîtes englobantes (bounding boxes),
+        \item la classe de l’objet.
+    \end{itemize}
+    \item Si aucun centre d’objet n’est présent dans la cellule, elle prédit simplement « pas d’objet ».
+\end{itemize}
+
+Cette division permet à YOLO de traiter l’image entière en une seule passe (one-shot), contrairement aux méthodes qui scannent l’image avec des fenêtres glissantes ou des propositions de régions.
+
+\begin{itemize}
+    \item \textbf{Avantage} : Raisonnement global sur toute l’image → moins d’erreurs sur le fond.  
+    \item \textbf{Limitation} : Les objets très proches ou très petits peuvent être mal détectés.
+\end{itemize}
+
+
+
+\subsection{Prédiction des boîtes englobantes (Bounding Box Prediction)}
+
+Chaque cellule de la grille prédit \textbf{B boîtes englobantes}.
+
+Chaque boîte est définie par \textbf{5 valeurs} :
+
+\begin{itemize}
+    \item \textbf{x, y} : coordonnées du \textbf{centre} de la boîte, relatives à la cellule (normalisées entre 0 et 1)
+    \item \textbf{w, h} : largeur et hauteur de la boîte, relatives à la taille totale de l’image (normalisées entre 0 et 1)
+    \item \textbf{Confidence} : score de confiance = $\text{Pr(Object)} \times \text{IOU}_{\text{pred}}^{\text{truth}}$
+\end{itemize}
+
+La \textbf{confidence} mesure :
+\begin{itemize}
+    \item la probabilité qu’il y ait un objet dans la boîte,
+    \item la précision de la prédiction (via l’Intersection over Union avec la vérité terrain).
+\end{itemize}
+
+
+\subsection{Prédiction des classes (Class Prediction)}
+
+Chaque cellule prédit \textbf{C probabilités conditionnelles} de classes :  
+$\text{Pr}(\text{Class}_i \mid \text{Object})$
+
+\begin{itemize}
+    \item Ces probabilités sont conditionnées par la présence d’un objet dans la cellule.
+    \item Une seule série de probabilités est prédite par cellule (quel que soit le nombre de boîtes B).
+\end{itemize}
+
+Au moment de l’inférence, le score final pour une classe est calculé comme suit :
+
+\begin{equation}
+\text{Pr}(\text{Class}_i) = \text{Pr}(\text{Class}_i \mid \text{Object}) \times \text{Pr}(\text{Object}) \times \text{IOU}_{\text{pred}}^{\text{truth}}
+\end{equation}
+
+Ce score combine la probabilité que l’objet appartienne à la classe et la qualité de la boîte.
+
+
+
+\subsection{Fonction de perte (Loss Function)}
+
+YOLO optimise une \textbf{fonction de perte multi-parties} basée sur l'erreur quadratique (sum-squared error). Cette fonction est composée de cinq termes distincts, chacun correspondant à un objectif d'apprentissage différent.
+
+La fonction complète est la suivante :
+
+\begin{equation}
+\begin{aligned}
+\text{Loss} = &\ \lambda_{\text{coord}} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{obj}} \Big[(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2\Big] \\
+&+ \lambda_{\text{coord}} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{obj}} \Big[(\sqrt{w_i} - \sqrt{\hat{w}_i})^2 + (\sqrt{h_i} - \sqrt{\hat{h}_i})^2\Big] \\
+&+ \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{obj}} (C_i - \hat{C}_i)^2 \\
+&+ \lambda_{\text{noobj}} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{noobj}} (C_i - \hat{C}_i)^2 \\
+&+ \sum_{i=0}^{S^2} \mathbb{1}_i^{\text{obj}} \sum_{c \in \text{classes}} (p_i(c) - \hat{p}_i(c))^2
+\end{aligned}
+\end{equation}
+
+\subsubsection{Explication détaillée de chaque terme}
+
+\begin{enumerate}
+    \item \textbf{Erreur de localisation sur les coordonnées du centre (x, y)} \\
+    \begin{equation*}
+    \lambda_{\text{coord}} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{obj}} \Big[(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2\Big]
+    \end{equation*}
+    \begin{itemize}
+        \item Calcule l'erreur quadratique (MSE) entre le centre prédit ($\hat{x}_i, \hat{y}_i$) et le centre réel ($x_i, y_i$).
+        \item $x$ et $y$ sont relatifs à la cellule de la grille (normalisés entre 0 et 1).
+    \end{itemize}
+
+    \item \textbf{Erreur de localisation sur la taille de la boîte (w, h)} \\
+    \begin{equation*}
+    \lambda_{\text{coord}} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{obj}} \Big[(\sqrt{w_i} - \sqrt{\hat{w}_i})^2 + (\sqrt{h_i} - \sqrt{\hat{h}_i})^2\Big]
+    \end{equation*}
+    \begin{itemize}
+        \item Même principe, mais pour la largeur ($w$) et la hauteur ($h$).
+        \item On applique la \textbf{racine carrée} avant le calcul de l'erreur.
+        \item \textbf{Raison de la racine carrée} : une erreur de 10 pixels sur une petite boîte est beaucoup plus grave que sur une grande boîte. La racine carrée rend l'erreur proportionnellement plus sévère pour les petites tailles.
+    \end{itemize}
+
+    \item \textbf{Erreur de confiance pour les boîtes contenant un objet} \\
+    \begin{equation*}
+    \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{obj}} (C_i - \hat{C}_i)^2
+    \end{equation*}
+    \begin{itemize}
+        \item Erreur quadratique sur la \textbf{confidence} prédite ($\hat{C}_i$) par rapport à la vraie confidence ($C_i = \text{IOU}_{\text{pred}}^{\text{truth}}$).
+        \item Objectif : apprendre que, quand il y a un objet, la confidence doit être élevée (proche de 1 ou de l'IoU réel).
+    \end{itemize}
+
+    \item \textbf{Erreur de confiance pour les boîtes sans objet} \\
+    \begin{equation*}
+    \lambda_{\text{noobj}} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{1}_{ij}^{\text{noobj}} (C_i - \hat{C}_i)^2
+    \end{equation*}
+    \begin{itemize}
+        \item Même erreur de confidence, mais pour les cellules/boîtes \textbf{sans objet} ($C_i = 0$).
+        \item Objectif : pénaliser les faux positifs (prédire un objet là où il n'y en a pas).
+    \end{itemize}
+
+    \item \textbf{Erreur de classification (probabilités de classes)} \\
+    \begin{equation*}
+    \sum_{i=0}^{S^2} \mathbb{1}_i^{\text{obj}} \sum_{c \in \text{classes}} (p_i(c) - \hat{p}_i(c))^2
+    \end{equation*}
+    \begin{itemize}
+        \item Erreur quadratique sur les probabilités conditionnelles $\text{Pr}(\text{Class}_c \mid \text{Objet})$.
+        \item On compare la probabilité prédite ($\hat{p}_i(c)$) à la vraie (1 pour la classe correcte, 0 sinon).
+        \item Utilise MSE pour simplicité (les versions modernes passent à la cross-entropy).
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Résumé des objectifs de la fonction de perte}
+
+\begin{itemize}
+    \item \textbf{Localisation} (termes 1 et 2) → apprendre à bien placer et dimensionner les boîtes (fortement pondérée).
+    \item \textbf{Confiance avec objet} (terme 3) → apprendre à être confiant quand il y a un objet.
+    \item \textbf{Confiance sans objet} (terme 4) → apprendre à ne pas être confiant quand il n'y a rien (pénalité réduite).
+    \item \textbf{Classification} (terme 5) → apprendre à identifier correctement la classe de l’objet (uniquement quand objet présent).
+\end{itemize}
+
+Cette conception astucieuse  est la raison pour laquelle YOLO parvient à équilibrer vitesse et précision malgré sa simplicité.
+
+
+\subsection{Suppression Non-Maximale (Non-Maximum Suppression – NMS)}
+
+Après l’inférence, plusieurs boîtes peuvent détecter le même objet.
+
+\textbf{Étapes du NMS} :
+\begin{enumerate}
+    \item Trier toutes les boîtes détectées par ordre décroissant de score de confiance.
+    \item Prendre la boîte avec le score le plus élevé.
+    \item Supprimer toutes les boîtes qui ont un \textbf{IoU > seuil} (typiquement 0.5) avec cette boîte.
+    \item Répéter jusqu’à ce qu’il ne reste plus de boîte.
+\end{enumerate}
+
+\textbf{Résultat} : une seule détection finale par objet, sans doublons.
+
+
+
+\subsection{Architecture du réseau}
+
+Le réseau YOLO est un **réseau de neurones convolutifs** (CNN) conçu pour être à la fois très rapide et capable de faire toutes les prédictions en une seule passe.
+
+\subsubsection{Structure globale}
+
+L'image suivante est la représentation visuelle de l'architecture du réseau YOLO.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{img/YOLO_Model_Reseau.png}
+\caption{Architecture du réseau YOLO \cite{redmon2016you}}
+\label{fig:fig3}
+\end{figure}
+
+Le réseau est composé de :
+\begin{itemize}
+    \item \textbf{24 couches convolutives} → extraction des caractéristiques de l'image
+    \item \textbf{2 couches entièrement connectées} (fully connected) → prédictions finales
+\end{itemize}
+
+Il s'inspire fortement de l'architecture \textbf{GoogLeNet} (utilisée pour la classification ImageNet), mais simplifiée et adaptée à la détection.
+
+\subsubsection{Détail des couches convolutives}
+Les couches convolutives sont organisées de la façon suivante :
+
+\begin{itemize}
+    \item Les premières couches servent à extraire des caractéristiques de bas niveau (contours, textures, couleurs)
+    \item Les couches intermédiaires détectent des formes plus complexes
+    \item Les dernières couches convolutives produisent des cartes de caractéristiques très riches en information sémantique
+\end{itemize}
+
+Pour réduire la dimensionnalité et accélérer le calcul, YOLO utilise des techniques très efficaces :
+\begin{itemize}
+    \item \textbf{Couches de réduction 1×1} (bottleneck) → diminuent fortement le nombre de canaux
+    \item \textbf{Couches 3×3} → extraient les caractéristiques spatiales
+\end{itemize}
+
+
+\subsubsection{Prétraitement et adaptation pour la détection}
+\begin{itemize}
+    \item \textbf{Pré-entraînement} : les 20 premières couches convolutives sont entraînées sur \textbf{ImageNet} (classification) avec une résolution d'entrée de 224×224
+    \item \textbf{Adaptation détection} : on ajoute ensuite
+    \begin{itemize}
+        \item 4 couches convolutives supplémentaires
+        \item 2 couches entièrement connectées
+    \end{itemize}
+    \item \textbf{Changement de résolution} : on passe de 224×224 à \textbf{448×448} pour avoir plus de détails fins (important pour la détection d'objets)
+\end{itemize}
+
+\subsubsection{Sortie finale du réseau}
+À la fin du parcours, le réseau produit un tenseur unique de taille :
+
+\textbf{7 × 7 × 30}
+
+Ce tenseur contient \textbf{toutes les prédictions} pour toute l'image :
+\begin{itemize}
+    \item 7×7 = la grille
+    \item 30 = $B×5 + C$ = $2×5 + 20$ (dans le cas PASCAL VOC)
+    \begin{itemize}
+        \item 2 boîtes × 5 valeurs (x, y, w, h, confidence)
+        \item + 20 probabilités de classes
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Version rapide : Fast YOLO}
+Les auteurs ont aussi créé une version beaucoup plus rapide :
+\begin{itemize}
+    \item Seulement \textbf{9 couches convolutives} au lieu de 24
+    \item Moins de filtres dans chaque couche
+    \item Même principe d'entraînement et d'inférence
+    \item Vitesse : \textbf{155 images par seconde} (contre 45 pour la version de base)
+\end{itemize}
+
+\subsubsection{Points clés à retenir}
+\begin{itemize}
+    \item \textbf{Un seul réseau} : de l'image brute jusqu'aux prédictions finales
+    \item \textbf{Très profond} : 24 couches convolutives + 2 fully connected
+    \item \textbf{Efficace} : utilisation intensive de convolutions 1×1 pour réduire les calculs
+    \item \textbf{Pré-entraînement} sur ImageNet → transfert learning
+    \item \textbf{Résolution augmentée} : 448×448 au lieu de 224×224 pour plus de précision
+\end{itemize}
+
+C'est cette architecture simple mais puissante qui permet à YOLO d'atteindre des vitesses très élevées tout en restant relativement précis.
+
+
+\newpage
+
+
+
+\section{Rapport sur le projet de détection de nids de poules sur le tronçon de route Dschang-Bafoussam}
+
+\subsection{Introduction}
+
+Ce rapport résume les étapes que nous avons suivies, du téléchargement du jeu de données à l'entraînement et au déploiement du modèle. Le projet utilise YOLOv8 pour détecter les nids-de-poule à partir de vidéos de caméras dashboard, avec l'objectif d'avertir les conducteurs, créer une carte pour les autorités et quantifier les dommages routiers. Les étapes sont basées sur l'option 2 (datasets publics + affinage local) et des outils comme Kaggle, Roboflow, Ultralytics et Google Colab.
+
+
+\subsection{Choix du Jeu de Données Public et téléchargement}
+
+\begin{enumerate}
+    \item \textbf{Choix du Dataset :} Nous avons sélectionné le dataset "\textbf{Potholes-Detection-YOLOv8}" sur Kaggle (par Angga Dwi Sunarto), qui est déjà au format YOLOv8. Il contient 1581 images pour l'entraînement et 396 pour la validation, avec des annotations pour la classe 'pothole'. Ce dataset est diversifié (conditions d'éclairage et météo variées), ce qui est un bon point de départ pour adapter aux routes camerounaises et est accessible à l'adresse : \url{https://www.kaggle.com/datasets/anggadwisunarto/potholes-detection-yolov8}.
+    
+    \item \textbf{Téléchargement :} Nous avons créé un compte Kaggle, téléchargé le ZIP (environ 755 MB), et décompressé le dossier. Structure obtenue :
+    
+    \begin{itemize}
+        \item train/images/ et train/labels/ (images JPG + annotations TXT)
+        \item valid/images/ et valid/labels/
+        \item data.yaml
+        \item Une vidéo sample (sample\_video.mp4) pour tests.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Création de Compte Roboflow et Import du Dataset Public}
+
+\begin{itemize}
+    \item \textbf{Pourquoi Roboflow ?} : Pour faciliter l'upload, l'annotation, les augmentations et l'export au format YOLOv8. Nous avons créé un compte gratuit sur Roboflow.com, puis un projet "Object Detection" nommé "Pothole Cameroon".
+    
+    \item \textbf{Import du Dataset Kaggle} : Nous avons uploadé le ZIP entier (train + valid + data.yaml). Roboflow a détecté le format YOLO et importé les 1977 images annotées.
+    
+    \item Après l'annotation, nous avons obtenu 1547 images redimensionnées en 512 × 512, puis nous avons créé une nouvelle version du dataset, que nous avons appelée : \textbf{images\_ok} pour respecter la consigne 70-15-15 et que nous avons importée au format \textbf{YOLOv8}. Cette nouvelle version est accessible à l'adresse : \url{https://app.roboflow.com/pothole-detection-wipyl/pothole-detection-dschang-bafous/1}
+\end{itemize}
+
+\subsection{Préparation de l'environnement pour l'Entraînement}
+
+\begin{itemize}
+    \item \textbf{Outils : }Google Colab pour GPU, Google drive pour importer le dataset
+\end{itemize}
+
+
+\subsection{Entraînement du Modèle}
+
+Le notebook est accessible à l'adresse : \url{https://colab.research.google.com/drive/1ABJ9w4BZfpVnUM0rG-9DTV8EWPE-QkoT?usp=drive_link}
+
+
+\subsection{Évaluation du Modèle}
+
+Après l'entraînement sur 100 epochs, le modèle a été validé automatiquement sur l'ensemble de validation. Voici la sortie complète générée par Ultralytics (YOLOv8) et son interprétation détaillée.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{img/evaluations.png}
+\caption{Evaluations du modèle}
+\end{figure}
+
+
+\begin{itemize}
+    \item \textbf{100 epochs completed in 0.678 hours} \\
+    L'entraînement a duré environ 40 minutes (0.678 heures) pour 100 epochs. Cela montre une vitesse très correcte grâce à l'utilisation du GPU Tesla T4 sur Google Colab.
+
+    \item \textbf{Model summary (fused): 73 layers, 3,005,843 parameters, 8.1 GFLOPs} \\
+    \begin{itemize}
+        \item \textbf{73 layers} : le modèle YOLOv8n (nano) fusionné (optimisé pour l'inférence) contient 73 couches au total.
+        \item \textbf{3 millions de paramètres} : très léger → rapide et adapté aux déploiements embarqués.
+        \item \textbf{8.1 GFLOPs} : mesure de la complexité computationnelle → faible, donc très rapide à l'inférence.
+    \end{itemize}
+
+    \item \textbf{Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100\% 8/8 00:03 2.37it/s} \\
+    \begin{itemize}
+        \item \textbf{all} : résultats globaux sur toutes les classes (ici seulement 'pothole').
+        \item \textbf{Images : 232} : nombre d'images dans l'ensemble de validation.
+        \item \textbf{Instances : 884} : nombre total d'objets (nids-de-poule) annotés dans ces images.
+        \item \textbf{Box(P)} : Précision (Precision) = 0.768 → 76,8\% des détections sont correctes (faible taux de faux positifs).
+        \item \textbf{Box(R)} : Rappel (Recall) = 0.683 → 68,3\% des vrais nids-de-poule ont été détectés.
+        \item \textbf{mAP50} : mean Average Precision à IoU=0.5 = 0.758 → **75,8\%** → très bon résultat (objectif > 0.70 atteint).
+        \item \textbf{mAP50-95} : mAP moyen sur IoU de 0.5 à 0.95 = 0.488 → 48,8\% → montre que pour des seuils IoU plus stricts (boîtes très précises), la performance diminue (classique pour YOLO sur objets irréguliers comme les potholes).
+    \end{itemize}
+
+    \item \textbf{Speed: 0.2ms preprocess, 2.3ms inference, 3.5ms postprocess per image} \\
+    \begin{itemize}
+        \item \textbf{2.3 ms d'inférence par image} → environ **435 images par seconde** sur Tesla T4 (très rapide).
+        \item Temps total par image = 6 ms
+    \end{itemize}
+
+    \item \textbf{Results saved to /content/runs/detect/train} \\
+    Tous les résultats (courbes de perte, matrice de confusion, images de validation annotées, best.pt, last.pt) sont sauvegardés dans ce dossier.
+\end{itemize}
+
+\subsubsection{Interprétation globale des performances}
+
+\begin{itemize}
+    \item \textbf{mAP@0.5 = 75,8\%} → Excellent pour un premier entraînement sur un dataset mixte (Kaggle + local). Le modèle détecte bien les nids-de-poule dans la majorité des cas.
+    \item \textbf{Precision (76,8\%) > Recall (68,3\%)} → Le modèle fait peu de fausses détections (bon pour éviter les alertes inutiles), mais manque encore quelques petits ou mal éclairés potholes.
+    \item \textbf{mAP50-95 = 48,8\%} → Indique que les boîtes prédites ne sont pas toujours très précises (forme irrégulière des potholes). Améliorable avec plus d'images locales et augmentations.
+    \item \textbf{Vitesse} : largement au-dessus de l'objectif (> 20 FPS).
+\end{itemize}
+
+
+
+\subsection{Déploiement du Modèle}
+
+Nous avons créé une application flask pour déployer le modèle obtenu.\\ \\
+
+Le dossier complet du projet est accessible à l'adresse : \url{https://github.com/VirlenceDongmo/Pothole_Detection.git}
+
+
+
+\newpage
+
+
+% Bibliographie
+
+\renewcommand{\thesection}{} % Supprime le préfixe "Chapitre" pour la section Bibliographie
+\section{Bibliographie}
+\printbibliography[heading=none]
+
+
+\end{document}
