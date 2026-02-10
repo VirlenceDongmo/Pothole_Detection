@@ -3,6 +3,7 @@
 \usetheme{Warsaw}
 \usepackage{ragged2e}
 % Packages
+\usepackage{pdftexcmds}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{comment}
@@ -25,7 +26,7 @@
     urlcolor=blue,
     citecolor=blue
 }
-\author[DONGMO FEUDJIO - KENMOGNE]{}
+\author[DONGMO FEUDJIO]{}
 % Obtenir le nombre total de slides
 \usepackage{etoolbox}
 \makeatletter
@@ -40,7 +41,7 @@
 \hspace*{1ex}DONGMO FEUDJIO
 \end{beamercolorbox}%
 \begin{beamercolorbox}[wd=.64\paperwidth,ht=2.5ex,dp=1ex,center]{title in head/foot}%
-      Détection de nids de poules
+      Détection de nids de poule
 \end{beamercolorbox}%
 \begin{beamercolorbox}[wd=.09\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
 \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
@@ -49,8 +50,9 @@
 \vskip0pt%
 }
 \logo{\includegraphics[height=6mm]{img/logo.png}}
+
 % Title page configuration
-\title{Détection de nids de poules sur le tronçon Dschang-Bafoussam}
+\title{Détection de nids de poule sur le tronçon Dschang-Bafoussam}
 \begin{document}
 % Page de titre
 \begin{frame}[plain]
@@ -86,236 +88,368 @@
 \normalsize
 \today
 \end{frame}
+
 \begin{frame}[plain]
-\frametitle{Plan de présentation}
-\tableofcontents[hideallsubsections]
+    \frametitle{Plan de présentation}
+    \tableofcontents[hideallsubsections]
 \end{frame}
+
 \section{Analyse du papier : You only look once: Unified, real-time object detection}
+
 \begin{frame}[allowframebreaks]
-\frametitle{Analyse du papier : You Only Look Once (YOLO)}
-\framesubtitle{Résumé et Contexte}
-\textbf{Papier de Redmon et al. (2016)} : Introduit YOLO pour détection en temps réel.
-\begin{itemize}
-\item \textbf{Approche} : Régression unique vs. pipelines complexes (R-CNN).
-\item \textbf{Points clés} :
-\begin{itemize}
-\item Vitesse : 45 FPS (base), 155 FPS (Fast YOLO).
-\item Précision : Double mAP temps réel, mais + erreurs localisation.
-\item Généralisation : Meilleur sur art vs. DPM/R-CNN.
-\end{itemize}
-\end{itemize}
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Résumé et Contexte}
+    \textbf{Papier de Redmon et al. (2016)} : Introduit YOLO pour détection en temps réel.
+    \begin{itemize}
+        \item \textbf{Approche} : Régression unique vs. pipelines complexes (R-CNN).
+        \item \textbf{Points clés} :
+        \begin{itemize}
+            \item Vitesse : 45 FPS (base), 155 FPS (Fast YOLO).
+            \item Précision : Double mAP temps réel, mais + erreurs localisation.
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=1\textwidth]{img/YOLO_System_Detection.png}
-\caption{Système de détection de YOLO \cite{redmon2016you}}
-\end{figure}
-\begin{itemize}
-  \item Redimensionner l'image à 448x448
-  \item Exécuter un réseau convolutif unique
-  \item Seuiller les détections par confiance
-\end{itemize}
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Système de détection YOLO}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1\textwidth]{img/YOLO_System_Detection.png}
+        \caption{Système de détection de YOLO \cite{redmon2016you}}
+    \end{figure}
+
+    \begin{itemize}
+        \item Division de l’image en grille
+        \item Prédiction simultanée par chaque cellule de chaque grille
+        \item Post-traitement avec suppression non-maximale (NMS)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Division de l’image en grille (Grid Division)}
+    L'image est divisée en grille $S\times S$ et si le centre d'un objet tombe dans une cellule de grille, cette cellule de grille est responsable de la détection de cet objet.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/YOLO_Model.png}
+        \caption{Modèle de détection de YOLO \cite{redmon2016you}}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Prédiction simultanée par chaque cellule de chaque grille}
+    \begin{itemize}
+        \item Chaque \textbf{cellule de grille} prédit B boîtes englobantes, des scores de confiance pour ces boîtes et C probabilités de classes conditionnelles.
+        \item \textbf{Score} : $Pr(Class_i|Object) \times Pr(Object) \times IOU$.
+        \item Chaque boîte englobante consiste en 5 prédictions : \textbf{x, y, w, h, et la confiance}
+        \begin{itemize}
+            \item x,y : les coordonnées du centre de la boîte
+            \item w,h : la largeur et la hauteur de la boîte
+            \item la confiance : IOU entre la boîte prédite et toute boîte vérité terrain
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Analyse du papier : You Only Look Once (YOLO)}
-\framesubtitle{Introduction (Section 1)}
-\textbf{Problématique} : Système humain rapide et précis vs. méthodes lentes (DPM, R-CNN) qui réutilisent des capteurs pour la détection.
-\begin{itemize}
-\item \textbf{YOLO} : Une passe pour prédictions objets/positions.
-\item \textbf{Avantages} :
-\begin{itemize}
-\item Vitesse : 45-150 FPS, latence <25 ms.
-\item Raisonnement global : $\frac{1}{2}$ faux positifs arrière-plan vs. Fast R-CNN.
-\item Généralisation : Domaines inattendus (art).
-\end{itemize}
-\item \textbf{Limites} : Localisation imprécise petits objets.
-\end{itemize}
-\end{frame}
-\begin{frame}[allowframebreaks]
-\frametitle{Analyse du papier : You Only Look Once (YOLO)}
-\framesubtitle{Détection Unifiée (Section 2)}
-\textbf{Architecture} : Grille $S\times S$ et si le centre d'un objet tombe dans une cellule de grille, cette cellule de grille est responsable de la détection de cet objet.
-\begin{itemize}
-\item Chaque \textbf{cellule de grille} prédit B boîtes englobantes, des scores de confiance pour ces boîtes et C probabilités de classes conditionnelles.
-\item \textbf{Score} : $Pr(Class_i|Object) \times Pr(Object) \times IOU$.
-\item Chaque boîte englobante consiste en 5 prédictions : \textbf{x, y, w, h, et la confiance}
-\begin{itemize}
-\item x,y : les coordonnées du centre de la boîte
-\item w,h : la largeur et la hauteur de la boîte
-\item la confiance : IOU entre la boîte prédite et toute boîte vérité terrain
-\end{itemize}
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Non-Maximum Suppression (NMS)}
+    Après prédiction, plusieurs boîtes peuvent détecter le même objet.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.8\textwidth]{img/YOLO_Model.png}
-\caption{Modèle de détection de YOLO \cite{redmon2016you}}
-\end{figure}
+    \textbf{Étapes du NMS} :
+    \begin{itemize}
+        \item Trier les boîtes par ordre décroissant de \textbf{score de confiance}.
+        \item Sélectionner la boîte avec le score le plus élevé.
+        \item Supprimer toutes les boîtes avec \textbf{IoU > seuil} (généralement 0.5) avec celle-ci.
+        \item Répéter jusqu’à épuisement.
+    \end{itemize}
 
-\begin{itemize}
-\item x,y : les coordonnées du centre de la boîte
-\item w,h : la largeur et la hauteur de la boîte
-\item la confiance : IOU entre la boîte prédite et toute boîte vérité terrain
-\end{itemize}
-
-\item \textbf{Réseau} : ce modèle est implémenté comme un réseau neuronal convolutif.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.9\textwidth]{img/YOLO_Model_Reseau.png}
-\caption{Modèle de détection de YOLO \cite{redmon2016you}}
-\end{figure}
-\item \textbf{Entraînement} :
-\begin{itemize}
-\item Pré-entraînement des couches convolutives sur ImageNet (1000 classes).
-\item Conversion du modèle pour la détection en ajoutant 4 couches convolutives et 2 couches entièrement connectées.
-\item Augmentation de la résolution d'entrée de 224x224 à 448x448 pour des informations visuelles fines.
-\item Utilisation d'une fonction de perte somme des carrés pondérée ($\lambda_{coord}=5$, $\lambda_{noobj}=0.5$).
-\item Prédiction de la racine carrée de w et h pour mieux gérer les erreurs sur petites boîtes.
-\item Assignation d'un prédicteur responsable par objet basé sur l'IOU le plus élevé.
-\end{itemize}
-\item \textbf{Inférence} :
-\begin{itemize}
-\item Une seule évaluation du réseau pour prédire 98 boîtes et classes par image.
-\item Utilisation de NMS pour éliminer les détections multiples (+2-3\% mAP).
-\item Pas de pipeline complexe, rapide pour le streaming vidéo.
-\end{itemize}
-\item \textbf{Limites} :
-\begin{itemize}
-\item Contraintes spatiales : seulement 2 boîtes et 1 classe par cellule, limite les objets proches.
-\item Difficulté avec petits objets groupés (ex. : troupeaux d'oiseaux).
-\item Généralisation limitée à ratios d'aspect ou configurations inhabituelles.
-\item Caractéristiques grossières dues au downsampling.
-\item Fonction de perte traite erreurs identiquement pour petites/grandes boîtes (source principale d'erreurs de localisation).
-\end{itemize}
-\end{itemize}
-\end{frame}
-\begin{frame}[allowframebreaks]
-\frametitle{Analyse du papier : You Only Look Once (YOLO)}
-\framesubtitle{Comparaison systèmes (Section 3)}
-\textbf{YOLO vs. concurrents :}
-\begin{itemize}
-\item \textbf{YOLO vs. DPM} : Architecture unifiée vs. approche de fenêtre glissante ; remplace extraction statique, classification et prédiction par un seul CNN optimisé pour la détection.
-\item \textbf{YOLO vs. R-CNN} : Contraintes spatiales sur propositions (98 vs. 2000) ; optimisation conjointe vs. pipeline disjoint lent (>40s/image).
-\item \textbf{YOLO vs. Fast/Faster R-CNN} : Plus rapide (45 FPS vs. 7 FPS) mais moins précis ; ne repose pas sur Selective Search.
-\item \textbf{YOLO vs. MultiBox} : Système complet vs. seulement prédiction de régions ; détection générale vs. pièce de pipeline.
-\item \textbf{YOLO vs. OverFeat} : Raisonnement global vs. local ; optimise pour détection vs. localisation.
-\item \textbf{YOLO vs. MultiGrasp} : Détection multiple objets/classes vs. une seule région saisissable.
-\item \textbf{Tableau comparatif :}
-\end{itemize}
-
-\begin{tabular}{lcc}
-\toprule
-Méthode & mAP & FPS \\
-\midrule
-Fast YOLO & 52.7 & 155 \\
-YOLO & 63.4 & 45 \\
-Fast R-CNN & 70.0 & 0.5 \\
-\bottomrule
-\end{tabular}
-\end{frame}
-\begin{frame}[allowframebreaks]
-\frametitle{Analyse du papier : You Only Look Once (YOLO)}
-\framesubtitle{Expériences (Section 4)}
-\textbf{Résultats VOC 2007 :}
-\begin{itemize}
-\item \textbf{4.1 Temps réel} : YOLO 63.4 mAP @45 FPS (2x DPM).
-\item \textbf{4.2 Erreurs} :
-\begin{itemize}
-\item YOLO : 19\% loc., 4.75\% bg.
-\item Fast R-CNN : 8.6\% loc., 13.6\% bg.
-\end{itemize}
-\item \textbf{4.3 Combinaison} : +3.2\% mAP (75.0\%).
-\item \textbf{4.4 VOC 2012} : 57.9 mAP (faible petits objets).
-\item \textbf{4.5 Généralisation} : Art Picasso 59\% AP (meilleur R-CNN).
-\end{itemize}
+    \textbf{Résultat :} une seule détection finale par objet, sans doublons.
 \end{frame}
 
 \begin{frame}[allowframebreaks]
-\frametitle{Analyse du papier : You Only Look Once (YOLO)}
-\framesubtitle{Sections 5-6 \& Applicabilité}
-\textbf{Section 5 (Détection en temps réel dans le monde réel)} : 
-\begin{itemize}
-\item YOLO est connecté à une webcam pour démontrer ses performances en temps réel, y compris la récupération des images et l'affichage des détections.
-\item Le système est interactif : traite les images individuellement mais fonctionne comme un suivi en détectant les objets en mouvement.
-\item Démo et code source disponibles sur le site du projet (open-source).
-\end{itemize}
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Architecture du réseau}
+    Ce modèle est implémenté comme un réseau neuronal convolutif.
 
-\textbf{Section 6 (Conclusion)} : 
-\begin{itemize}
-\item YOLO est un modèle unifié, simple à construire, entraîné directement sur images complètes.
-\item Optimisé pour performances de détection ; rapide, précis et généralisable.
-\item Pousse l'état de l'art en détection temps réel ; idéal pour applications nécessitant robustesse.
-\end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{img/YOLO_Model_Reseau.png}
+        \caption{Modèle de détection de YOLO \cite{redmon2016you}}
+    \end{figure}
+
+    \begin{itemize}
+        \item \textbf{Entraînement} :
+        \begin{itemize}
+            \item Pré-entraînement des couches convolutives.
+            \item Conversion du modèle pour la détection en ajoutant 4 couches convolutives et 2 couches entièrement connectées.
+            \item Augmentation de la résolution d'entrée de 224x224 à 448x448 pour des informations visuelles fines.
+            \item Utilisation d'une fonction de perte somme des carrés pondérée ($\lambda_{coord}=5$, $\lambda_{noobj}=0.5$).
+            \item Prédiction de la racine carrée de w et h pour mieux gérer les erreurs sur petites boîtes.
+            \item Assignation d'un prédicteur responsable par objet basé sur l'IOU le plus élevé.
+        \end{itemize}
+        \item \textbf{Avantages} :
+        \begin{itemize}
+            \item Une seule évaluation du réseau pour prédire 98 boîtes et classes par image.
+            \item Utilisation de NMS pour éliminer les détections multiples.
+            \item Pas de pipeline complexe, rapide pour le streaming vidéo.
+        \end{itemize}
+        \item \textbf{Limites} :
+        \begin{itemize}
+            \item Contraintes spatiales : seulement 2 boîtes et 1 classe par cellule, limite les objets proches.
+            \item Difficulté avec petits objets groupés (ex. : troupeaux d'oiseaux).
+        \end{itemize}
+    \end{itemize}
 \end{frame}
+
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Fonction de perte}
+
+    YOLO optimise une \textbf{fonction de perte multi-parties} basée sur l'erreur quadratique (sum-squared error). Cette fonction est composée de cinq termes distincts, chacun correspondant à un objectif d'apprentissage différent.
+
+    La fonction complète est la suivante :
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{img/fonction_perte.png}
+        \caption{Fonction de perte de YOLO \cite{redmon2016you}}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Fonction de perte}
+
+    \textbf{Explication détaillée de chaque terme}
+
+    \begin{itemize}
+        \item \textbf{Erreur de localisation sur les coordonnées du centre (x, y) = premier terme} \\
+        \begin{itemize}
+            \item Calcule l'erreur quadratique (MSE) entre le centre prédit ($\hat{x}_i, \hat{y}_i$) et le centre réel ($x_i, y_i$).
+            \item $x$ et $y$ sont relatifs à la cellule de la grille (normalisés entre 0 et 1).
+        \end{itemize}
+
+        \item \textbf{Erreur de localisation sur la taille de la boîte (w, h) (deuxième terme)} \\
+        \begin{itemize}
+            \item Même principe, mais pour la largeur ($w$) et la hauteur ($h$).
+            \item On applique la \textbf{racine carrée} avant le calcul de l'erreur.
+            \item \textbf{Raison de la racine carrée} : une erreur de 10 pixels sur une petite boîte est beaucoup plus grave que sur une grande boîte. La racine carrée rend l'erreur proportionnellement plus sévère pour les petites tailles.
+        \end{itemize}
+
+        \item \textbf{Erreur de confiance pour les boîtes contenant un objet (troisième terme)} \\
+        \begin{itemize}
+            \item Erreur quadratique sur la \textbf{confidence} prédite ($\hat{C}_i$) par rapport à la vraie confidence ($C_i = \text{IOU}_{\text{pred}}^{\text{truth}}$).
+            \item Objectif : apprendre que, quand il y a un objet, la confidence doit être élevée (proche de 1 ou de l'IoU réel).
+        \end{itemize}
+
+        \item \textbf{Erreur de confiance pour les boîtes sans objet(quatrième terme)} \\
+        \begin{itemize}
+            \item Même erreur de confidence, mais pour les cellules/boîtes \textbf{sans objet} ($C_i = 0$).
+            \item Objectif : pénaliser les faux positifs (prédire un objet là où il n'y en a pas).
+        \end{itemize}
+
+        \item \textbf{Erreur de classification (probabilités de classes) (cinquième terme)} \\
+        \begin{itemize}
+            \item Erreur quadratique sur les probabilités conditionnelles $\text{Pr}(\text{Class}_c \mid \text{Objet})$.
+            \item On compare la probabilité prédite ($\hat{p}_i(c)$) à la vraie (1 pour la classe correcte, 0 sinon).
+            \item Utilise MSE pour simplicité (les versions modernes passent à la cross-entropy).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{Fonction de perte}
+
+    \textbf{Résumé des objectifs de la fonction de perte}
+
+    \begin{itemize}
+        \item \textbf{Localisation} (termes 1 et 2) → apprendre à bien placer et dimensionner les boîtes (fortement pondérée).
+        \item \textbf{Confiance avec objet} (terme 3) → apprendre à être confiant quand il y a un objet.
+        \item \textbf{Confiance sans objet} (terme 4) → apprendre à ne pas être confiant quand il n'y a rien (pénalité réduite).
+        \item \textbf{Classification} (terme 5) → apprendre à identifier correctement la classe de l’objet (uniquement quand objet présent).
+    \end{itemize}
+
+Cette conception astucieuse  est la raison pour laquelle YOLO parvient à équilibrer vitesse et précision malgré sa simplicité.
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Analyse du papier : You Only Look Once (YOLO)}
+    \framesubtitle{En conclusion}
+    \textbf{En conclusion} : 
+    \begin{itemize}
+        \item YOLO est un modèle unifié, simple à construire, entraîné directement sur images complètes.
+        \item Optimisé pour performances de détection ; rapide, précis et généralisable.
+        \item Pousse l'état de l'art en détection temps réel ; idéal pour applications nécessitant robustesse.
+    \end{itemize}
+\end{frame}
+
 
 
 \begin{frame}[plain]
-\frametitle{Plan de présentation}
-\tableofcontents[hideallsubsections]
+    \frametitle{Plan de présentation}
+    \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Collecte des données pour le projet}
 
-\begin{frame}[allowframebreaks]
-\frametitle{Collecte des données}
-\framesubtitle{Stratégie adoptée : Option 2 – Datasets publics + affinage local}
+\section{Projet de détection de nids de poule sur le tronçon de route Dschang-Bafoussam}
 
-\textbf{Objectif} : Obtenir un ensemble de données adapté aux routes camerounaises (tronçon Dschang-Bafoussam), avec au moins 500 images annotées au format YOLO.
+\begin{frame}
+    \frametitle{Objectifs du projet}
+    \framesubtitle{Contexte et problématique}
 
+    \begin{block}{Problématique principale}
+        Les nids-de-poule constituent un danger majeur sur les routes camerounaises, notamment sur l'axe \textbf{Dschang–Bafoussam}.
+    \end{block}
+
+    \bigskip
+
+    \textbf{Objectifs du projet :}
+    \begin{itemize}
+        \item Détecter automatiquement les nids-de-poule en temps réel à partir de vidéos de dashcam
+        \item Avertir le conducteur (alerte visuelle / sonore)
+        \item Cartographier les zones à risque pour les autorités
+        \item Quantifier les dommages routiers
+    \end{itemize}
+    \end{frame}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Choix du dataset public}
+    
+    \begin{itemize}
+        \item Dataset : \mymark{Potholes-Detection-YOLOv8}
+        \item Auteur : Angga Dwi Sunarto
+        \item Plateforme : Kaggle
+        \item Lien : \url{https://www.kaggle.com/datasets/anggadwisunarto/potholes-detection-yolov8}
+        \item Format natif : \important{YOLOv8}
+        \item Nombre d'images : 
+        \begin{itemize}
+            \item Train : 1581
+            \item Valid : 396
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Import et traitement via Roboflow}
+    \begin{itemize}
+        \item Création d'un compte sur \href{https://roboflow.com}{Roboflow}
+        \item Projet : \mymark{Pothole Cameroon}
+        \item Upload du ZIP Kaggle complet
+        \item Redimensionnement : \important{512 × 512}
+        \item Nouvelle version du dataset : \good{images\_ok}
+        \item Split final : \textbf{70\% – 15\% – 15\%}
+        \item Export au format \textbf{YOLOv8}
+    \end{itemize}
+
+    \bigskip
+
+    Lien du dataset final :  
+    \url{https://app.roboflow.com/pothole-detection-wipyl/pothole-detection-dschang-bafous/1}
+\end{frame}
+
+\begin{frame}{Environnement d'entraînement}
+    \begin{block}{Configuration utilisée}
+    \begin{itemize}
+        \item Plateforme : Google Colab (GPU)
+        \item GPU : Tesla T4
+        \item Bibliothèque : \important{Ultralytics YOLOv8}
+        \item Modèle de base : \textbf{yolov8n.pt} (nano – très léger)
+        \item Nombre d'epochs : \good{100}
+    \end{itemize}
+    \end{block}
+
+    \bigskip
+
+    Notebook complet :  
+    \url{https://github.com/VirlenceDongmo/Pothole_Detection/blob/master/Code/pothole_notebook/Pothole_detection.ipynb}
+\end{frame}
+
+\begin{frame}{Interprétation des métriques clés}
+    \begin{columns}[T]
+        \column{0.52\textwidth}
+        \begin{itemize}
+            \item \good{mAP@0.5 = 75.8\%} \quad → excellent
+            \item Precision = \good{76.8\%}
+            \item Recall = 68.3\%
+            \item mAP@0.5:0.95 = 48.8\%
+        \end{itemize}
+
+        \column{0.48\textwidth}
+        \begin{block}{Interprétation}
+        \begin{itemize}
+            \item Très bon compromis précision / rapidité
+            \item Peu de faux positifs → alertes fiables
+            \item Recall perfectible sur petits / mal éclairés potholes
+        \end{itemize}
+        \end{block}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Application web de démonstration}
+    \begin{itemize}
+        \item Framework : \textbf{Flask}
+        \item Fonctionnalités :
+        \begin{itemize}
+            \item Upload vidéo
+            \item Détection en temps réel
+            \item Visualisation des résultats
+        \end{itemize}
+        \item Modèle chargé : \good{best.pt}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Application web de démonstration}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.95\textwidth]{img/page_accueil.png}
+        \caption{Page d'accueil de l'application}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Synthèse et résultats obtenus}
+\begin{block}{Points forts}
 \begin{itemize}
-    \item \textbf{Datasets publics (base)} :
-    \begin{itemize}
-        \item Dataset principal : \textbf{Potholes-Detection-YOLOv8} (Kaggle, par Angga Dwi Sunarto).
-        \item Nombre d'images : 1581 (train) + 396 (validation).
-        \item Classes : pothole (1 classe).
-        \item Format : YOLO (dossiers train/images, train/labels ; valid/images, valid/labels ; fichier data.yaml prêt).
-        \item Avantages : Images haute résolution, diverses conditions (éclairage jour/nuit, sec/humide), déjà annotées avec bounding boxes.
-        \item Source : \url{https://www.kaggle.com/datasets/anggadwisunarto/potholes-detection-yolov8}
-    \end{itemize}
-
-    \item \textbf{Collecte locale complémentaire (affinage)} :
-    \begin{itemize}
-        \item Objectif : Au moins 200 images spécifiques au Cameroun pour adapter le modèle aux caractéristiques locales (asphalte dégradé, poussière rouge, végétation tropicale, pluies intenses, ombres d'arbres).
-        \item Méthode automatisée : Script Python utilisant \textbf{Google Custom Search JSON API} pour télécharger des images web pertinentes.
-        \item Requêtes utilisées (queries) :
-        \begin{itemize}
-            \item ``routes Cameroun nids de poule''
-            \item ``potholes Cameroon roads''
-            \item ``Bafoussam bad road potholes''
-            \item ``potholes Dschang road''
-        \end{itemize}
-        \item Résultat : 200 images téléchargées.
-        \item Script clé (extrait) :
-        \begin{itemize}
-            \item API : Google Custom Search (clé API + CX).
-            \item Téléchargement progressif avec \texttt{tqdm} et gestion d'erreurs.
-            \item Filtre : images larges (\texttt{imgSize=large}).
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{Annotation des images locales} :
-    \begin{itemize}
-        \item Outil principal : \textbf{Roboflow} : \url{https://app.roboflow.com/pothole-detection-wipyl/pothole-detection-dschang-bafous/1}
-    \end{itemize}
-
-    \item \textbf{Diversité recherchée} :
-    \begin{itemize}
-        \item Conditions météo : sec, pluvieux (flaques d'eau).
-        \item Éclairage : matin, midi, soir/nuit.
-        \item Types de routes : bitumées dégradées, secondaires, zones urbaines/périurbaines (Bafoussam, Dschang, axes ouest).
-    \end{itemize}
-
+    \item mAP@0.5 \important{75.8\%} sur un dataset mixte
+    \item Déploiement fonctionnel (Flask)
+    \item Code et données publics sur GitHub
 \end{itemize}
+\end{block}
 
+\bigskip
+
+Lien du projet complet :  
+\href{https://github.com/VirlenceDongmo/Pothole_Detection}{\faGithub \quad VirlenceDongmo / Pothole\_Detection}
+\end{frame}
+
+\begin{frame}{Perspectives d'amélioration}
+\begin{itemize}
+    \item Collecte et annotation d'images locales 
+    \item Augmentation des données (pluie, nuit, poussière, ombre)
+    \item Intégration en temps réel dans un véhicule 
+    \item Développement d'une application mobile
+    \item Création d'une carte interactive des nids-de-poule (base de données géolocalisée)
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]
-\frametitle{Références}
-\begin{scriptsize}
-\printbibliography[title={}]
-\end{scriptsize}
+
+
+
+
+\begin{frame}
+    \frametitle{Références}
+    \printbibliography
 \end{frame}
+
 \end{document}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Pothole Detector - Upload Vidéo</title>
@@ -19,5 +19,211 @@
       </div>
     </div>
   </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détecteur de Nids-de-Poule - YOLOv8</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        .card-header {
+            background: linear-gradient(90deg, #0d6efd, #0b5ed7);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .progress {
+            height: 10px;
+            margin: 1rem 0;
+        }
+        .video-container {
+            margin-top: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        .btn-download {
+            margin-top: 1rem;
+        }
+        .status-message {
+            margin-top: 1.5rem;
+            font-weight: 500;
+        }
+        .dark-mode {
+            background: linear-gradient(135deg, #1e1e2f 0%, #2a2a4a 100%);
+            color: #e0e0ff;
+        }
+        .dark-mode .card {
+            background: #2d2d44;
+            color: #e0e0ff;
+        }
+        .dark-mode .card-header {
+            background: linear-gradient(90deg, #0d47a1, #1565c0);
+        }
+        .dark-mode body {
+            background: #121212;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5 mb-5">
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-primary">
+            <i class="fas fa-road me-2"></i>Détecteur de Nids-de-Poule
+        </h1>
+        <p class="text-muted">YOLOv8 – Temps réel sur le tronçon Dschang-Bafoussam</p>
+    </div>
+
+    <div class="card shadow-lg">
+        <div class="card-header">
+            <h4 class="mb-0">Téléchargez une vidéo de tableau de bord</h4>
+        </div>
+        <div class="card-body p-4">
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <label for="video" class="form-label fw-bold">
+                        <i class="fas fa-video me-2"></i>Choisir la vidéo :
+                    </label>
+                    <input type="file" class="form-control form-control-lg" id="video" name="video" accept="video/*" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn">
+                    <i class="fas fa-search me-2"></i>Lancer la détection
+                </button>
+            </form>
+
+            <!-- Barre de progression -->
+            <div class="progress mt-4" id="progressContainer" style="display: none;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+
+            <!-- Statut -->
+            <div id="statusMessage" class="status-message text-center"></div>
+
+            <!-- Résultat vidéo -->
+            <div id="resultSection" class="mt-5" style="display: none;">
+                <h5 class="text-success text-center mb-3">
+                    <i class="fas fa-check-circle me-2"></i>Détection terminée !
+                </h5>
+                <div class="video-container">
+                    <video id="resultVideo" controls autoplay muted>
+    <source id="resultSource" src="" type="video/avi">  <!-- .avi = x-msvideo -->
+    Votre navigateur ne supporte pas la lecture vidéo.
+</video>
+                </div>
+                <div class="text-center mt-3">
+                    <a id="downloadBtn" href="#" download="pothole_detected.mp4" class="btn btn-success btn-lg btn-download">
+                        <i class="fas fa-download me-2"></i>Télécharger la vidéo annotée
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <small class="text-muted">Projet académique – Université de Dschang | 2026</small>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const form = document.getElementById('uploadForm');
+const status = document.getElementById('statusMessage');
+const progressContainer = document.getElementById('progressContainer');
+const progressBar = document.getElementById('progressBar');
+const resultSection = document.getElementById('resultSection');
+const resultVideo = document.getElementById('resultVideo');
+const resultSource = document.getElementById('resultSource');
+const downloadBtn = document.getElementById('downloadBtn');
+
+let pollingInterval = null;
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const fileInput = document.getElementById('video');
+    if (!fileInput.files.length) {
+        status.innerHTML = '<span class="text-danger">Sélectionnez une vidéo</span>';
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('video', fileInput.files[0]);
+
+    status.innerHTML = '<span class="text-primary">Traitement en cours...</span>';
+    progressContainer.style.display = 'block';
+    progressBar.style.width = '10%';
+    progressBar.textContent = '10%';
+    resultSection.style.display = 'none';
+
+    try {
+        const response = await fetch('/upload', { method: 'POST', body: formData });
+        const data = await response.json();
+
+        if (!data.success) throw new Error(data.error || 'Erreur serveur');
+
+        const taskId = data.task_id;
+
+        // Polling
+        pollingInterval = setInterval(async () => {
+            try {
+                const check = await fetch(`/check_result/${taskId}`);
+                const res = await check.json();
+
+                if (res.success && res.status === 'completed') {
+                    clearInterval(pollingInterval);
+                    status.innerHTML = '<span class="text-success">Terminé !</span>';
+                    progressBar.style.width = '100%';
+                    progressBar.textContent = '100%';
+
+                    resultSource.src = res.output_url;
+                    resultVideo.load();
+                    resultSection.style.display = 'block';
+                    downloadBtn.href = res.output_url;
+                    downloadBtn.download = data.output_filename;
+
+                } else {
+                    let p = parseInt(progressBar.textContent) || 10;
+                    p = Math.min(p + 15, 95);
+                    progressBar.style.width = p + '%';
+                    progressBar.textContent = p + '%';
+                }
+            } catch (err) {
+                clearInterval(pollingInterval);
+                status.innerHTML = `<span class="text-danger">Erreur : ${err.message}</span>`;
+            }
+        }, 3000);
+
+    } catch (err) {
+        status.innerHTML = `<span class="text-danger">Erreur : ${err.message}</span>`;
+        progressContainer.style.display = 'none';
+    }
+});
+</script>
 </body>
 </html>

@@ -23,6 +23,7 @@
 \usepackage{tabularx}
 \usepackage{ragged2e}
 \usepackage{caption}
+\usepackage{pdfpages}
 
 % Hyperliens
 \usepackage{hyperref}
@@ -78,6 +79,9 @@
 
 
 \begin{document}
+
+% Page de couverture
+\includepdf[pages=1]{COUVERTURE1.pdf}
 
 \tableofcontents
 \newpage
@@ -406,7 +410,7 @@ Ce rapport résume les étapes que nous avons suivies, du téléchargement du je
 
 \subsection{Entraînement du Modèle}
 
-Le notebook est accessible à l'adresse : \url{https://colab.research.google.com/drive/1ABJ9w4BZfpVnUM0rG-9DTV8EWPE-QkoT?usp=drive_link}
+Le notebook est accessible à l'adresse : \url{https://github.com/VirlenceDongmo/Pothole_Detection/blob/master/Code/pothole_notebook/Pothole_detection.ipynb}
 
 
 \subsection{Évaluation du Modèle}
@@ -465,18 +469,39 @@ Après l'entraînement sur 100 epochs, le modèle a été validé automatiquemen
 
 \subsection{Déploiement du Modèle}
 
-Nous avons créé une application flask pour déployer le modèle obtenu.\\ \\
-
-Le dossier complet du projet est accessible à l'adresse : \url{https://github.com/VirlenceDongmo/Pothole_Detection.git}
-
+Nous avons créé une application flask pour déployer le modèle obtenu. \\
+L'image suivante représente la page d'accueil de cette application.
 
 
-\newpage
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/page_accueil.png}
+\caption{Page d'accueil de l'application flask pour le déploiement du modèle de détection de nids de poules sur le tronçon Dschang-Bafoussam}
+\end{figure}
+
+
+\subsection{Perspective d'amélioration}
+\begin{itemize}
+    \item Collecte et annotation d'images locales 
+    \item Augmentation des données (pluie, nuit, poussière, ombre)
+    \item Intégration en temps réel dans un véhicule 
+    \item Développement d'une application mobile
+    \item Création d'une carte interactive des nids-de-poule (base de données géolocalisée)
+\end{itemize}
+
+
+\subsection{Lien d'accès au projet}
+
+\textbf{Le dossier complet du projet est accessible à l'adresse : \href{https://github.com/VirlenceDongmo/Pothole_Detection}{\faGithub \quad VirlenceDongmo / Pothole\_Detection}
+}
 
 
 % Bibliographie
 
 \renewcommand{\thesection}{} % Supprime le préfixe "Chapitre" pour la section Bibliographie
+
+\newpage
+
 \section{Bibliographie}
 \printbibliography[heading=none]
 

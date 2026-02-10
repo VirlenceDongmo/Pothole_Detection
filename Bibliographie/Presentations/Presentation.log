@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.2)  1 FEB 2026 09:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.2)  10 FEB 2026 13:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -774,7 +774,7 @@ Package babel Info: Importing font and identification data for french
 )
 (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 Package french.ldf Info: No list customisation for the beamer class,
-(french.ldf)             reported on input line 10.
+(french.ldf)             reported on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
@@ -1193,7 +1193,7 @@ Package biblatex Info: ... and expl3
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 27.
+Package hyperref Info: Option `colorlinks' set `true' on input line 28.
 
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
@@ -1204,24 +1204,24 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (./Presentation.aux)
 \openout1 = `Presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1279,69 +1279,69 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 54.
+Package hyperref Info: Link coloring ON on input line 56.
 
 (./Presentation.out) (./Presentation.out)
 \@outlinefile=\write7
 \openout7 = `Presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 54.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 56.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 54.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 56.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 54.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 54.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 54.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 54.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 54.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 54.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 54.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 54.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 54.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 54.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 54.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 54.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 54.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 56.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 54.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 54.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 54.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 54.
+(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 54.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 54.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 54.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 54.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 56.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 56.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 54
+(Font)              `pureletters' in the math version `normal' on input line 56
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 54
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 56
 .
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 54.
+(Font)              `pureletters' in the math version `bold' on input line 56.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 54
+(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 56
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 54.
+ut line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1367,8 +1367,8 @@ Dictionary: translator-numbers-dictionary, Language: English
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \degres on input line 54.
-LaTeX Info: Redefining \up on input line 54.
+LaTeX Info: Redefining \degres on input line 56.
+LaTeX Info: Redefining \up on input line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -1400,49 +1400,61 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Presentation.bbl' found.
 
 (./Presentation.bbl)
-Package biblatex Info: Reference section=0 on input line 54.
-Package biblatex Info: Reference segment=0 on input line 54.
+Package biblatex Info: Reference section=0 on input line 56.
+Package biblatex Info: Reference segment=0 on input line 56.
  (./Presentation.nav)
-Overfull \hbox (47.69315pt too wide) detected at line 54
+Overfull \hbox (47.69315pt too wide) detected at line 56
   []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
 object detection[] 
  []
 
 
-Overfull \hbox (47.69315pt too wide) detected at line 88
+Overfull \hbox (63.60468pt too wide) detected at line 56
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+
+Overfull \hbox (47.69315pt too wide) detected at line 90
   []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
 object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 90
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 <img/page_de_garde.png, id=37, 942.52126pt x 332.24126pt>
 File: img/page_de_garde.png Graphic file (type png)
 <use img/page_de_garde.png>
-Package pdftex.def Info: img/page_de_garde.png  used on input line 88.
+Package pdftex.def Info: img/page_de_garde.png  used on input line 90.
 (pdftex.def)             Requested size: 276.559pt x 97.48814pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 88.
+ut line 90.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-Overfull \hbox (1.23767pt too wide) in paragraph at lines 88--88
+Overfull \hbox (1.23767pt too wide) in paragraph at lines 90--90
  [] 
  []
 
 
-Overfull \hbox (1.23767pt too wide) in paragraph at lines 88--88
+Overfull \hbox (1.23767pt too wide) in paragraph at lines 90--90
  [] 
  []
 
@@ -1450,21 +1462,33 @@ Overfull \hbox (1.23767pt too wide) in paragraph at lines 88--88
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
 dvips/cm-super/cm-super-t1.enc} <./img/page_de_garde.png>]
-Overfull \hbox (47.69315pt too wide) detected at line 92
+Overfull \hbox (47.69315pt too wide) detected at line 95
   []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
 object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 95
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 (./Presentation.toc) [2
 
 ]
-Overfull \hbox (47.69315pt too wide) detected at line 107
+Overfull \hbox (47.69315pt too wide) detected at line 111
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
  []
 
 
-LaTeX Warning: File `img/logo.png' not found on input line 107.
+Overfull \hbox (63.60468pt too wide) detected at line 111
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 111.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1474,40 +1498,52 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.107 \end{frame}
+l.111 \end{frame}
                  
 ? 
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-07.
+11.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 107.
+(Font)              size <5> substituted on input line 111.
 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [3
 
 ]
-Overfull \hbox (47.69315pt too wide) detected at line 120
+Overfull \hbox (47.69315pt too wide) detected at line 128
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 128
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 <img/YOLO_System_Detection.png, id=166, 384.43625pt x 95.35625pt>
 File: img/YOLO_System_Detection.png Graphic file (type png)
 <use img/YOLO_System_Detection.png>
-Package pdftex.def Info: img/YOLO_System_Detection.png  used on input line 120.
+Package pdftex.def Info: img/YOLO_System_Detection.png  used on input line 128.
 
 (pdftex.def)             Requested size: 307.28987pt x 76.22543pt.
 
-LaTeX Warning: File `img/logo.png' not found on input line 120.
+LaTeX Warning: File `img/logo.png' not found on input line 128.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1517,25 +1553,46 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.120 \end{frame}
+l.128 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [4
 
  <./img/YOLO_System_Detection.png>]
-Overfull \hbox (47.69315pt too wide) detected at line 136
+Overfull \hbox (47.69315pt too wide) detected at line 141
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
  []
 
 
-LaTeX Warning: File `img/logo.png' not found on input line 136.
+Overfull \hbox (63.60468pt too wide) detected at line 141
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+<img/YOLO_Model.png, id=201, 400.49625pt x 246.9225pt>
+File: img/YOLO_Model.png Graphic file (type png)
+<use img/YOLO_Model.png>
+Package pdftex.def Info: img/YOLO_Model.png  used on input line 141.
+(pdftex.def)             Requested size: 245.83282pt x 151.56819pt.
+
+Overfull \vbox (31.61009pt too high) detected at line 141
+ []
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 141.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1545,35 +1602,37 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.136 \end{frame}
+l.141 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [5
 
-]
-Overfull \hbox (47.69315pt too wide) detected at line 193
+ <./img/YOLO_Model.png>]
+Overfull \hbox (47.69315pt too wide) detected at line 157
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
  []
 
-<img/YOLO_Model.png, id=232, 400.49625pt x 246.9225pt>
-File: img/YOLO_Model.png Graphic file (type png)
-<use img/YOLO_Model.png>
-Package pdftex.def Info: img/YOLO_Model.png  used on input line 193.
-(pdftex.def)             Requested size: 245.83282pt x 151.56819pt.
-<img/YOLO_Model_Reseau.png, id=234, 641.39626pt x 284.06125pt>
-File: img/YOLO_Model_Reseau.png Graphic file (type png)
-<use img/YOLO_Model_Reseau.png>
-Package pdftex.def Info: img/YOLO_Model_Reseau.png  used on input line 193.
-(pdftex.def)             Requested size: 276.559pt x 122.48203pt.
 
-LaTeX Warning: File `img/logo.png' not found on input line 193.
+Overfull \hbox (63.60468pt too wide) detected at line 157
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 157.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1583,20 +1642,37 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.193 \end{frame}
+l.157 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [6
 
 ]
+Overfull \hbox (47.69315pt too wide) detected at line 173
+  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
+ject detection 
+ []
 
-LaTeX Warning: File `img/logo.png' not found on input line 193.
+
+Overfull \hbox (63.60468pt too wide) detected at line 173
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 173.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1606,21 +1682,42 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.193 \end{frame}
+l.173 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [7
 
+]
+Overfull \hbox (47.69315pt too wide) detected at line 208
+  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
+ject detection 
+ []
 
- <./img/YOLO_Model.png>]
 
-LaTeX Warning: File `img/logo.png' not found on input line 193.
+Overfull \hbox (63.60468pt too wide) detected at line 208
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+<img/YOLO_Model_Reseau.png, id=303, 641.39626pt x 284.06125pt>
+File: img/YOLO_Model_Reseau.png Graphic file (type png)
+<use img/YOLO_Model_Reseau.png>
+Package pdftex.def Info: img/YOLO_Model_Reseau.png  used on input line 208.
+(pdftex.def)             Requested size: 276.559pt x 122.48203pt.
+
+LaTeX Warning: File `img/logo.png' not found on input line 208.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1630,7 +1727,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.193 \end{frame}
+l.208 \end{frame}
                  
 ? 
 
@@ -1639,12 +1736,17 @@ Overfull \hbox (50.1923pt too wide) has occurred while \output is active
 ject detection 
  []
 
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
 [8
 
+ <./img/YOLO_Model_Reseau.png>]
 
-]
-
-LaTeX Warning: File `img/logo.png' not found on input line 193.
+LaTeX Warning: File `img/logo.png' not found on input line 208.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1654,21 +1756,27 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.193 \end{frame}
+l.208 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [9
 
 
- <./img/YOLO_Model_Reseau.png>]
+]
 
-LaTeX Warning: File `img/logo.png' not found on input line 193.
+LaTeX Warning: File `img/logo.png' not found on input line 208.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1678,21 +1786,43 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.193 \end{frame}
+l.208 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [10
 
 
 ]
+Overfull \hbox (47.69315pt too wide) detected at line 224
+  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
+ject detection 
+ []
 
-LaTeX Warning: File `img/logo.png' not found on input line 193.
+
+Overfull \hbox (63.60468pt too wide) detected at line 224
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+<img/fonction_perte.png, id=394, 574.145pt x 399.4925pt>
+File: img/fonction_perte.png Graphic file (type png)
+<use img/fonction_perte.png>
+Package pdftex.def Info: img/fonction_perte.png  used on input line 224.
+(pdftex.def)             Requested size: 276.559pt x 192.43694pt.
+
+LaTeX Warning: File `img/logo.png' not found on input line 224.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1702,26 +1832,29 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.193 \end{frame}
+l.224 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [11
 
-
 ]
-Overfull \hbox (47.69315pt too wide) detected at line 217
-  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
-ject detection 
+Overfull \vbox (24.55019pt too high) detected at line 224
  []
 
 
-LaTeX Warning: File `img/logo.png' not found on input line 217.
+LaTeX Warning: File `img/logo.png' not found on input line 224.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1731,20 +1864,38 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.217 \end{frame}
+l.224 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [12
 
-]
 
-LaTeX Warning: File `img/logo.png' not found on input line 217.
+ <./img/fonction_perte.png>]
+Overfull \hbox (47.69315pt too wide) detected at line 266
+  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
+ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 266
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 266.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1754,26 +1905,26 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.217 \end{frame}
+l.266 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [13
 
-
 ]
-Overfull \hbox (47.69315pt too wide) detected at line 233
-  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
-ject detection 
- []
 
-
-LaTeX Warning: File `img/logo.png' not found on input line 233.
+LaTeX Warning: File `img/logo.png' not found on input line 266.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1783,25 +1934,27 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.233 \end{frame}
+l.266 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [14
 
+
 ]
-Overfull \hbox (47.69315pt too wide) detected at line 251
-  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
-ject detection 
- []
 
-
-LaTeX Warning: File `img/logo.png' not found on input line 251.
+LaTeX Warning: File `img/logo.png' not found on input line 266.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1811,20 +1964,43 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.251 \end{frame}
+l.266 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [15
 
-]
 
-LaTeX Warning: File `img/logo.png' not found on input line 251.
+]
+Overfull \hbox (47.69315pt too wide) detected at line 283
+  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
+ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 283
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
+283.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+
+LaTeX Warning: File `img/logo.png' not found on input line 283.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1834,34 +2010,37 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.251 \end{frame}
+l.283 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 [16
 
-
-]
-Overfull \hbox (47.69315pt too wide) detected at line 257
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (47.69315pt too wide) detected at line 295
   \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
 ject detection 
  []
 
-(./Presentation.toc) [17
 
-]
-Overfull \hbox (47.69315pt too wide) detected at line 312
-  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
-object detection[] 
+Overfull \hbox (63.60468pt too wide) detected at line 295
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
  []
 
 
-LaTeX Warning: File `img/logo.png' not found on input line 312.
+LaTeX Warning: File `img/logo.png' not found on input line 295.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1871,20 +2050,51 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.312 \end{frame}
+l.295 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
+ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+[17
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 302
+  \T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time ob
+ject detection 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 302
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+(./Presentation.toc) [18
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 324
   []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
 object detection[] 
  []
 
-[18
 
-]
+Overfull \hbox (63.60468pt too wide) detected at line 324
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
 
-LaTeX Warning: File `img/logo.png' not found on input line 312.
+
+LaTeX Warning: File `img/logo.png' not found on input line 324.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1894,21 +2104,56 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.312 \end{frame}
-                 
+l.324     \end{frame}
+                     
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
 object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
  []
 
 [19
 
-
 ]
+! Too many }'s.
+\endframe ->\egroup 
+                    \begingroup \def \@currenvir {frame}
+l.325 \end{frame}
+                 
+? 
 
-LaTeX Warning: File `img/logo.png' not found on input line 312.
+Overfull \hbox (47.69315pt too wide) detected at line 342
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 342
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+! Undefined control sequence.
+\beamer@doifinframe ...e} \item Dataset : \mymark 
+                                                  {Potholes-Detection-YOLOv8...
+l.342 \end{frame}
+                 
+? 
+! Undefined control sequence.
+\beamer@doifinframe ... Format natif : \important 
+                                                  {YOLOv8} \item Nombre d'im...
+l.342 \end{frame}
+                 
+? 
+
+LaTeX Warning: File `img/logo.png' not found on input line 342.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1918,30 +2163,55 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.312 \end{frame}
+l.342 \end{frame}
                  
 ? 
 
 Overfull \hbox (50.1923pt too wide) has occurred while \output is active
   []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
 object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
  []
 
 [20
 
-
 ]
-Overfull \hbox (47.69315pt too wide) detected at line 320
+Overfull \hbox (47.69315pt too wide) detected at line 359
   []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
 object detection[] 
  []
 
 
-LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
-(Font)              using `T1/cmss/m/n' instead on input line 320.
+Overfull \hbox (63.60468pt too wide) detected at line 359
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
 
+! Undefined control sequence.
+\beamer@doifinframe ...ow} \item Projet : \mymark 
+                                                  {Pothole Cameroon} \item U...
+l.359 \end{frame}
+                 
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...mensionnement : \important 
+                                                  {512 Ã— 512} \item Nouvell...
+l.359 \end{frame}
+                 
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...version du dataset : \good 
+                                                  {images\_ok} \item Split f...
+l.359 \end{frame}
+                 
+? 
 
-LaTeX Warning: File `img/logo.png' not found on input line 320.
+LaTeX Warning: File `img/logo.png' not found on input line 359.
 
 
 ! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
@@ -1951,7 +2221,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.320 \end{frame}
+l.359 \end{frame}
                  
 ? 
 
@@ -1960,7 +2230,346 @@ Overfull \hbox (50.1923pt too wide) has occurred while \output is active
 object detection[] 
  []
 
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
 [21
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 376
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 376
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+! Undefined control sequence.
+\beamer@doifinframe ...BibliothÃ¨que : \important 
+                                                  {Ultralytics YOLOv8} \item...
+l.376 \end{frame}
+                 
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...em Nombre d'epochs : \good 
+                                                  {100} \end {itemize} \end ...
+l.376 \end{frame}
+                 
+? 
+
+LaTeX Warning: File `img/logo.png' not found on input line 376.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.376 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+[22
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 397
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 397
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+! Undefined control sequence.
+<recently read> \good 
+                      
+l.397 \end{frame}
+                 
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...nt \item Precision = \good 
+                                                  {76.8\%} \item Recall = 68...
+l.397 \end{frame}
+                 
+? 
+
+LaTeX Warning: File `img/logo.png' not found on input line 397.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.397 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+[23
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 410
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 410
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+! Undefined control sequence.
+\beamer@doifinframe ...em ModÃ¨le chargÃ© : \good 
+                                                  {best.pt} \end {itemize} \...
+l.410 \end{frame}
+                 
+? 
+
+LaTeX Warning: File `img/logo.png' not found on input line 410.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.410 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+[24
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 418
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 418
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+<img/page_accueil.png, id=880, 1182.4175pt x 554.07pt>
+File: img/page_accueil.png Graphic file (type png)
+<use img/page_accueil.png>
+Package pdftex.def Info: img/page_accueil.png  used on input line 418.
+(pdftex.def)             Requested size: 291.92444pt x 136.79245pt.
+
+LaTeX Warning: File `img/logo.png' not found on input line 418.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.418 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+[25
+
+ <./img/page_accueil.png>]
+Overfull \hbox (47.69315pt too wide) detected at line 433
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 433
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+! Undefined control sequence.
+\beamer@doifinframe ...} \item mAP@0.5 \important 
+                                                  {75.8\%} sur un dataset mi...
+l.433 \end{frame}
+                 
+? 
+LaTeX Font Info:    Trying to load font information for U+fontawesomebrands0 on
+ input line 433.
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomebrands0.fd)
+LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <10.95> n
+ot available
+(Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead o
+n input line 433.
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 433.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.433 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+[26
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5brands0.enc}]
+Overfull \hbox (47.69315pt too wide) detected at line 443
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 443
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 443.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.443 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+[27
+
+]
+Overfull \hbox (47.69315pt too wide) detected at line 453
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) detected at line 453
+  \T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route D
+schang-Bafoussam 
+ []
+
+
+LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
+(Font)              using `T1/cmss/m/n' instead on input line 453.
+
+
+LaTeX Warning: File `img/logo.png' not found on input line 453.
+
+
+! Package pdftex.def Error: File `img/logo.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.453 \end{frame}
+                 
+? 
+
+Overfull \hbox (50.1923pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Analyse du papier : You only look once : Unified, real-time 
+object detection[] 
+ []
+
+
+Overfull \hbox (63.60468pt too wide) has occurred while \output is active
+  []\T1/cmss/m/n/6 Projet de détection de nids de poule sur le tronçon de route
+ Dschang-Bafoussam[] 
+ []
+
+[28
 
 ]
 \tf@nav=\write8
@@ -1989,7 +2598,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 210A6D3BA0DD39F89223F4C3103E613E;786.
+(rerunfilecheck)             Checksum: 65F9BBA384E68639DB36A530DCBEE5DB;1025.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                Presentation
@@ -2000,33 +2609,33 @@ Package logreq Info: Writing requests to 'Presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35635 strings out of 474222
- 699798 string characters out of 5748734
- 1946975 words of memory out of 5000000
- 57222 multiletter control sequences out of 15000+600000
- 579007 words of font info for 88 fonts, out of 8000000 for 9000
+ 35747 strings out of 474222
+ 702951 string characters out of 5748734
+ 1943975 words of memory out of 5000000
+ 57311 multiletter control sequences out of 15000+600000
+ 579361 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,1924b,2321s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/typ
-e1/public/cm-super/sfsi1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-fss0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0700.pfb></usr/sh
-are/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/fonts/type
-1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-ss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfsx0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfs
-x1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/shar
-e/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/
-public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt
-1000.pfb>
-Output written on Presentation.pdf (21 pages, 622091 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Br
+ands-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texmf/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sfss0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss07
+00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/t
+exmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/pub
+lic/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss109
+5.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/te
+xmf/fonts/type1/public/cm-super/sfsx0800.pfb></usr/share/texmf/fonts/type1/publ
+ic/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on Presentation.pdf (28 pages, 817639 bytes).
 PDF statistics:
- 814 PDF objects out of 1000 (max. 8388607)
- 680 compressed objects within 7 object streams
- 47 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1119 PDF objects out of 1200 (max. 8388607)
+ 911 compressed objects within 10 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 331 words of extra memory for PDF output out of 10000 (max. 10000000)
 

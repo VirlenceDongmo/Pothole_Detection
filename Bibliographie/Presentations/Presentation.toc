@@ -1,3 +1,3 @@
 \babel@toc {french}{}\relax 
 \beamer@sectionintoc {1}{Analyse du papier : You only look once: Unified, real-time object detection}{3}{0}{1}
-\beamer@sectionintoc {2}{Collecte des données pour le projet}{18}{0}{2}
+\beamer@sectionintoc {2}{Projet de détection de nids de poule sur le tronçon de route Dschang-Bafoussam}{19}{0}{2}

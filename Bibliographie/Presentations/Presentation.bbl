@@ -48,7 +48,8 @@
     \strng{fullhash}{RJDSGRFA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the IEEE conference on computer vision and pattern recognition}
+    \field{booktitle}{Proceedings of the IEEE conference on computer vision and
+  pattern recognition}
     \field{pages}{779\bibrangedash 788}
     \field{title}{You only look once: Unified, real-time object detection}
     \field{year}{2016}
